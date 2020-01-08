@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+</head>
+
+<!-- cssファイルを別に作るのが面倒なので<style>内に記載しています -->
+<style>
+    .back-img {
+        width: 100%;
+        height: auto;
+    }
+
+    #mesPoint {
+        background: pink;
+        margin: 0px;
+    }
+
+    #mes {
+        width: 100%;
+        background: yellow;
+        position: fixed;
+        bottom: 0;
+    }
+
+    #scrollAmount {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background: white;
+        text-align: center;
+    }
+</style>
+
+<body>
+    ↓
+    <br><br><br><br><br>↓
+    <br><br><br><br><br>↓
+    <br><br><br><br><br>↓
+    <br><br><br><br><br>↓
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <p id="mesPoint">FVのCVボタン</p>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+
+    <p id="mes">固定フッター</p> <!-- このメッセージを表示 -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script> /* メッセージ表示の初期化 */
+        var adOffset, adSize;
+        $(window).on('load resize', function () {
+            adOffset = $('#mesPoint').offset().top;
+            winH = $(window).height();
+        });
+        $(function () {
+            var message = $('#mes');
+            message.hide();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() < adOffset) {
+                    message.fadeOut();
+                } else {
+                    message.fadeIn();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
